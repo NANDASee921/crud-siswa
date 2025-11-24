@@ -13,12 +13,12 @@ import {
 
 // GANTI DENGAN FIREBASE CONFIG ANDA
 const firebaseConfig = {
-  apiKey: "AIzaSyBMSsNz6Dgss5vr8vlPbDdKgwOIn3dMBik",
-  authDomain: "insancemerlang2025.firebaseapp.com",
-  projectId: "insancemerlang2025",
-  storageBucket: "insancemerlang2025.firebasestorage.app",
-  messagingSenderId: "900746896855",
-  appId: "1:900746896855:web:20cfd37822398ef034d792"
+  apiKey: "AIzaSyBWzqA3FYUA3m3Y_C1c8fgIERYQzod6WwU",
+    authDomain: "insancemerlang-75559.firebaseapp.com",
+    projectId: "insancemerlang-75559",
+    storageBucket: "insancemerlang-75559.firebasestorage.app",
+    messagingSenderId: "276076065109",
+    appId: "1:276076065109:web:55214f37cb4c9c7357bfdc"
 }
 
 
@@ -87,3 +87,4 @@ export async function tampilkanDaftar() {
     
   })
 }
+
