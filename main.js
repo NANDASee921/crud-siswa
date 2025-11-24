@@ -71,7 +71,9 @@ export async function tampilkanDaftar() {
     const tombolHapus = document.createElement('button')
     tombolHapus.textContent = 'Hapus'
     tombolHapus.className = 'button delete'
-    
+    tombolHapus.onclick = async () => {
+        await hapusSiswa(id)
+    }
     // tambahkan elemen ke dalam kolom aksi
     kolomAksi.appendChild(tombolEdit)
     kolomAksi.appendChild(tombolHapus)
@@ -88,3 +90,32 @@ export async function tampilkanDaftar() {
   })
 }
 
+// Fungsi untuk menambah data siswa
+export async function tambahDataSiswa() {
+  // ambil  nilai dafi form
+  const nis = document.getElementById('nis').value
+  const nama = document.getElementById('nama').value
+  const kelas = document.getElementById('kelas').value  
+
+// tambahkan data firestore
+await addDoc(siswaCollection,{
+  nis: nis,
+  nama: nama,
+  kelas: kelas
+})
+
+// alihkan kehalaman daftar siswa
+window.location.href ="daftar html"
+}
+
+//fungsi untuk menghapus data siswa
+export async function hapusSiswa(id) {
+  //konfirmasi sebelum menghapus
+if (!confirm("yakin ingin menghapus data ini?"))
+return
+  //menghapus dokumen siswa berdasarkan id
+    await deleteDoc(doc(db,"siswa", id))
+    
+    //refresh daftar siswa
+    await tampilkanDaftar()
+}
