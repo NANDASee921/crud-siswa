@@ -78,30 +78,50 @@ export async function tampilkanDaftar() {
     kolomAksi.appendChild(tombolEdit)
     kolomAksi.appendChild(tombolHapus)
     
-    // tambahkan kolom ke dalam baris 
+    // tambahan kolom ke dalam baris 
     baris.appendChild(kolomNIS)
     baris.appendChild(kolomNama)
     baris.appendChild(kolomKelas)
     baris.appendChild(kolomAksi)
     
-    // tambahkan baris ke aalam tabel
-    tabel.appendChild(baris)
     
+    
+    
+//tambahkan kolom ke dalam baris
+      baris.appendChild(kolomnamalengkap)
+      baris.appendChild(kolomjeniskelamin)
+      baris.appendChild(kolomtanggallahir)
+      baris.appendChild(kolomagama)
+      baris.appendChild(notlp)
+      baris.appendChild(hoby)
+      baris.appendChild(citacita)
+      baris.appendChild(alamat)
   })
 }
 
-// Fungsi untuk menambah data siswa
+// fungsi untuk menambahkan data siswa
 export async function tambahDataSiswa() {
-  // ambil  nilai dafi form
-  const nis = document.getElementById('nis').value
-  const nama = document.getElementById('nama').value
-  const kelas = document.getElementById('kelas').value  
-
-// tambahkan data firestore
-await addDoc(siswaCollection,{
-  nis: nis,
-  nama: nama,
-  kelas: kelas
+//ambil nilai dari form
+  const no = document.getElementById('no').value
+  const namalengkap = document.getElementById('namalengkal').value
+  const jeniskelamin = document.getElementById('jeniskelamin').value
+  const tanggallahir = document.getElementById('tanggallahir').value
+  const agama = document.getElementById('agama').value
+  const notelpon = document.getElementById('notelpon').value
+  const hobi = document.getElementById('hobi').value
+  const citacita = document.getElementById('citacita').value
+  const alamat = document.getElementById('alamat'). value
+  
+  // tambahkan data ke firestore
+  await addDoc(siswaCollection, {
+    namalengkap:namalengkap, 
+    jeniskelamin:jeniskelamin, 
+    tanggallahir:tanggallahir, 
+    agama:agama, 
+    notlp:notlp, 
+    hoby:hoby, 
+    citacita:citacita, 
+    alamat:alamat,
 })
 
 // alihkan kehalaman daftar siswa
@@ -110,12 +130,6 @@ window.location.href ="daftar html"
 
 //fungsi untuk menghapus data siswa
 export async function hapusSiswa(id) {
-  //konfirmasi sebelum menghapus
-if (!confirm("yakin ingin menghapus data ini?"))
-return
-  //menghapus dokumen siswa berdasarkan id
-    await deleteDoc(doc(db,"siswa", id))
-    
-    //refresh daftar siswa
-    await tampilkanDaftar()
-}
+  await deleteDoc(doc(db,"Biodata",id));
+  await tampilkanBiodataSiswa()
+} 

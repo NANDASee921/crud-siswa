@@ -1,52 +1,75 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>tambah</title>
-  <link rel="stylesheet" href="style.css"/>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Form Tambah</title>
+    
+    <link rel="stylesheet" href="style.css">
 </head>
+<a href="daftar.html">daftar.html</a>
 
 <body>
-  <div class="container">
-    <h1>Form Tambah Siswa</h1>
-    
-    <form id="formTambah">
-    <label>NIS</label>
-    <input type="text"  id="nis"/>
-    
-    <label>Nama</label>
-    <input type="text" id="nama"/>
-    
-    <label>Kelas</label>
-    <select name="kelas" id="kelas">
-      <option value="X">X</option>
-      <option value="XI">XI</option>
-      <option value="XII">XII</option>
-      
+    <div class="container">
+        <h1>Form Tambah Siswa</h1>
+        
+        <form id="formtambah">
+            <label>Nama Siswa:</label>
+            <input type="text" id="Nama Siswa" />
+            
+
+         <select name="jenis kelamin" id="jenis kelamin">
+             <option value="perempuan">perempuan</option>
+            <option value="Laki-laki">Laki-laki</option>
+        </select>
+            
+            <label>Tanggal Lahir</label>
+            <input type="text" id="tanggal lahir">
+                
+        <label>Agama</label>
+    <select name="agama" id="agama">
+        <option value="Islam">Islam</option>
+        <option value="Katholik">Katholik</option>
+        <option value="Protestan">Protesta</option>
+        <option value="Budha">Budha </option>
+        <option value="Hindu">Hindu</option>
     </select>
-    <button id="tombolSimpan">Simpan</button>
-    <a href="daftar.html">Pergi ke Halaman Daftar Siswa</a>
-    </form>
+    
+        <label>Hobi</label>
+        <input type="text" id="Hobi">
+        
+        <label>Cita-cita</label>
+        <input type="text" id="Cita-cita">
+        
+        <label>Nomor Telepon</label>
+        <input type="text" id="Nomor Telepon">
+        
+        <label>Alamat</label>
+        <input type="text" id="Alamat">
+        
+        
+            <button id="tombolsimpan">simpan</button>
+        </form>
+        
+        
+    </div>
     
     <script type="module">
-      import {tambahDataSiswa} from'./main.js'
-      
-      ///mengirimkan data Siswa dari form
-      const formTambah = document.getElementById('formTambah')
-      
-      // event ketika form disubmit (dikirim)
-      formTambah.addEventListener('submit',function (e) {
-        //mencegah reload halaman
-        e.preventDefault()
-          
+        import { tambahBiodataSiswa } from './main.js'
+        //mengirimkan data siswa dari from
+        const formTambah = document.getElementById("formtambah")
         
-        // eksekusi fungsi tambah data Siswa 
-        tambahDataSiswa()
-      })
+        //event ketika form di submit (dikirim)
+        formTambah.addEventListener('submit', function(e) {
+            //mencegah reload halaman
+            e.preventDefault()
+            //eksekusi fungsi tambah data siswa
+            tambahBiodataSiswa()
+        })
     </script>
-  </div>
 </body>
+
 </html>
 
 
